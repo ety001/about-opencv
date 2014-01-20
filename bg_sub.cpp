@@ -26,7 +26,7 @@ int keyboard; //input from keyboard
 
 /** Function Headers */
 void help();
-void processVideo(char* videoFilename);
+void processVideo();
 void processImages(char* firstFrameFilename);
 
 void help()
