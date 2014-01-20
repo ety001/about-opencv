@@ -34,7 +34,7 @@ void help()
     cout
     << "--------------------------------------------------------------------------" << endl
     << "This program shows how to use background subtraction methods provided by "  << endl
-    << " OpenCV. You can process both videos (-vid) and images (-img)."             << endl
+    << " OpenCV. You can process both videos (-v) and images (-img)."             << endl
                                                                                     << endl
     << "Usage:"                                                                     << endl
     << "./bs {-vid <video filename>|-img <image filename>}"                         << endl
@@ -68,9 +68,9 @@ int main(int argc, char* argv[])
     pMOG = new BackgroundSubtractorMOG(); //MOG approach
     pMOG2 = new BackgroundSubtractorMOG2(); //MOG2 approach
 
-    if(strcmp(argv[1], "-vid") == 0) {
+    if(strcmp(argv[1], "-v") == 0) {
         //input data coming from a video
-        processVideo(argv[2]);
+        processVideo();
     }
     else if(strcmp(argv[1], "-img") == 0) {
         //input data coming from a sequence of images
@@ -90,9 +90,9 @@ int main(int argc, char* argv[])
 /**
  * @function processVideo
  */
-void processVideo(char* videoFilename) {
+void processVideo() {
     //create the capture object
-    VideoCapture capture(videoFilename);
+    VideoCapture capture(0);
     if(!capture.isOpened()){
         //error in opening the video input
         cerr << "Unable to open video file: " << videoFilename << endl;
